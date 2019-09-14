@@ -11,5 +11,37 @@
 </head>
 <body>
     <h1>helllo!</h1>
+    <div>
+        <form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Task</th><th>Due Date</th><th>Category</th><th>Notes</th><th>Status</th><th>Add</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" id="task" placeholder="Task" ></td>
+                        <td><input type="date" id="dueDate" placeholder="TODAY"></td>
+                        <td><input type="text" id="category" placeholder="Category" ></td>
+                        <td> <input type="text" id="notes" placeholder="Notes" ></td>
+                        <td> <input type="text" id="status" value="FALSE" ></td>
+                        <td> <button id="submit">Submit</button><button id="clear">Clear</button></td>
+                     </tr>
+                </tbody>
+            </table>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Task</th><th>Due Date</th><th>Category</th><th>Notes</th><th>Status</th><th>Edit</th>
+                </tr>
+            </thead>
+            <tbody id="taskDisplay"></tbody>
+        </table>
+        
+
+    </div>
+
 </body>
 </html>
