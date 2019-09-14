@@ -25,18 +25,18 @@ function addTask(){
     const dueDate =$('#dueDate').val();
     const category =$('#category').val();
     const notes =$('#notes').val();
-    const status =$('#status').val();
+    const progress =$('#progress').val();
     //TURNS  TASK INTO AN OBJECT
     const objectToSend ={
         task: task,
         dueDate: dueDate,
         category: category,
         notes: notes,
-        status: status
+        progress: progress
     }
     //POST TASK TO THE SERVER
     $.ajax({
-        method: 'POST',
+        type: 'POST',
         url:'/tasks',
         data: objectToSend
     }).then(function(response){
@@ -52,7 +52,7 @@ function addTask(){
 function getTasks(){
     //GET ANY TASKS ON THE SERVER 
     $.ajax({
-        method: 'GET',
+        type: 'GET',
         url:'/tasks'
     }).then(function(response){
         console.log('in getTasks response', response);
@@ -67,7 +67,7 @@ function getTasks(){
 function appendTasks(tasks){
     //EMPTY OLD DATA
     $('#taskDisplay').empty();
-    for(let task of  tasks){
+    for(let task of tasks){
         console.log(task);
         let tableRow = $(`
         <tr>
@@ -75,7 +75,7 @@ function appendTasks(tasks){
             <td>${task.dueDate}</td>
             <td>${task.category}</td>
             <td>${task.notes}</td>
-            <td>${task.status}</td>
+            <td>${task.progress}</td>
             <td><button data-id="${task.id}" class="deleteThis">Delete</button></td> 
         </tr>`)
         //ATTACH DATA TO ROW, NEED FOR  DELETE

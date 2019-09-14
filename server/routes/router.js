@@ -6,8 +6,8 @@ const pool = require('../modules/pool')
 router.post('/',function(req, res){
     const  taskToAdd  =  req.body; // this is data we are sending
     console.log('in post route - task', taskToAdd);
-    const queryText  = 'INSERT INTO "toDo"("task", "dueDate", "category", "notes", "completed") VALUES ($1, $2, $3,  $4, $5);';
-    pool.query(queryText, [taskToAdd.task,  taskToAdd.dueDat, taskToAdd.category, taskToAdd.notes, taskToAdd.status]).then(()=>{
+    const queryText  = 'INSERT INTO "toDo"("task", "dueDate", "category", "notes", "progress") VALUES ($1, $2, $3, $4, $5);';
+    pool.query(queryText, [taskToAdd.task,  taskToAdd.dueDate, taskToAdd.category, taskToAdd.notes, taskToAdd.progress ]).then(()=>{
         res.sendStatus(201);
     }).catch((err)=>{
         console.log('error in POST', err);       
@@ -16,8 +16,8 @@ router.post('/',function(req, res){
 //GET
 router.get('/', function (req, res) {
 console.log('In GET route');
-const queryText = 'SELECT * FROM "toDo";';
-pool.query(queryText).then((results) => {
+const query = 'SELECT * FROM "toDo";';
+pool.query(query).then((results) => {
     console.log(results); // This is an object
     res.send(results.rows); // result.rows is an Array of tasks
 }).catch((err) => {
