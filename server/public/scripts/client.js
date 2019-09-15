@@ -76,7 +76,7 @@ function appendTasks(tasks){
             <td>${task.category}</td>
             <td>${task.notes}</td>
             <td>${task.progress}</td>
-            <td><button data-id="${task.id}" class="deleteThis">Delete</button></td> 
+            <td><button data-id="${task.id}" class="deleteThis"><i class="fa fa-close"></i></button></td> 
         </tr>`)
         //ATTACH DATA TO ROW, NEED FOR  DELETE
         tableRow.data('id',task.id);

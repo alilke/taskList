@@ -1,3 +1,89 @@
 h1{
     color: aqua;
 }
+
+
+.errors{
+    color: red;
+}
+
+.error{
+    border-color: red;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    /* margin: 0; */
+    padding: 0;
+}
+
+table{
+    border: 1px solid black;
+    /* margin: 0 auto; */
+    border-collapse:collapse;
+    height: 40px;
+    width: 850px;
+}
+#tablez{
+    /* border: 1px solid black; */
+    /* margin: 0 auto; */
+    border-collapse:collapse;
+    height: 40px;
+    width: 500px;
+}
+#tablee{
+    /* border: 1px solid black; */
+    /* margin: 0 auto; */
+    border-collapse:collapse;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+th{
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    padding: 10px;
+    box-sizing: 10px;
+    column-width: 10px;
+}
+
+td{
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    padding: 10px;
+    vertical-align: middle;
+    /* column-width: 12px; */
+
+
+    
+}
+
+ #FN , #LN , #ID , #YS , #T {
+    width: 15%;
+}
+
+#DB, #deleteBTN{
+    width: 10%;
+} 
+/* Style buttons */
+.deleteThis {
+    /* background-color: DodgerBlue; Blue background */
+    border: none; /* Remove borders */
+    color: grey; /* White text */
+    /* padding: 12px 16px; Some padding */
+    font-size: 16px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+  }
+  
+  /* Darker background on mouse-over */
+  .deleteThis:hover {
+    /* background-color: RoyalBlue; */
+    color: black; /* White text */
+
+  }
