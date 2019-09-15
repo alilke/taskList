@@ -28,7 +28,7 @@ pool.query(query).then((results) => {
 
 //DELETE
 router.delete('/:id', (req, res) => {
-    console.log('params',req.params.id);
+    console.log('params',req.params);
     let queryText =`DELETE FROM "toDo" WHERE "id" = '${req.params.id}';`;
     pool.query(queryText)
     .then((result)=>{
