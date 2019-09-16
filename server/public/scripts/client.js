@@ -93,7 +93,7 @@ function appendTasks(task){
         console.log(task[i]);
         let progress = ``;
         if(task[i].progress === false){
-          progress = `<button id="transferBtn">Mark Complete</button>`
+          progress = `<button data-id="${task[i].id}" class="transferBtn">Mark Complete</button>`
         }
         let tableRow = $(`
        <tr>
@@ -112,37 +112,8 @@ function appendTasks(task){
         $('#taskDisplay').append(tableRow);        
     }
     $(`.deleteThis`).on('click', deleteBtn);
+    $(`.transferBtn`).on('click', updateProgress);
 }
-
-        // $('#taskDisplay').append(`<tr data-id="${task[i].id}">
-
-// }
-//     for(let task of tasks){
-//         console.log(task);
-//         let tableRow = $(`
-//         <tr>
-//             <td>${task.task}</td>
-//             <td>${task.dueDate}</td>
-//             <td>${task.category}</td>
-//             <td>${task.notes}</td>
-//             <td>${task.progress}</td>
-//             <td><button data-id="${task.id}" class="deleteThis"><i class="fa fa-close"></i></button></td> 
-//         </tr>`)
-//         //ATTACH DATA TO ROW, NEED FOR  DELETE
-//         tableRow.data('id',task.id);
-//         //APPEND ROW TO TABLE
-//         $('#taskDisplay').append(tableRow);        
-//     }
-//     $(`.deleteThis`).on('click', deleteBtn);
-// }
-
-
-
-
-
-
-
-
 
 function deleteBtn(){
     let el  =$(this).data('id');
@@ -157,3 +128,37 @@ function deleteBtn(){
         alert('error on delete', err);
     })   
 }
+
+// function updateProgress(){
+//     let el  =$(this).data('progress');
+//     console.log('delete', el);
+//     $.ajax({
+//         method: 'DELETE',
+//         url: `/tasks/${el}`
+//     }).then(function(response){
+//         console.log(response);
+//         getTasks();
+//     }).catch(function(err){
+//         alert('error on delete', err);
+//     })   
+// }
+
+function updateProgress(){
+    console.log('yay');
+    
+    let el = $(this).data('id');
+    let progress = $(this).data('progress');
+    console.log('direction', el);
+    $.ajax({
+        type: 'PUT',
+        url: `/tasks/progress/${el}`,
+        data: {
+          el: el,
+          progress: progress
+        }
+    }).then(function(response){
+        console.log(response);
+        getTasks();
+    }).catch( function(error){
+        alert('error',error);
+    })}

@@ -41,7 +41,24 @@ router.delete('/:id', (req, res) => {
 })
 
 //PUT
+router.put('/progress/:id',  (req, res) => {
+    console.log(req.params.id, 'this?',req.body);
+  
+    // let task = req.body.task; // Book with updated content
+    let id = req.params.id; // id of the book to update
+    let queryText = `UPDATE "toDo" SET "progress" = 'Yes' WHERE "id" = $1;`;
 
+    console.log(`Updating book ${id} with `, id);
+    // res.sendStatus(500);
+  
+    pool.query(queryText, [id])
+    .then(()=>{
+      res.sendStatus(200);
+      console.log('error making put requeat',error);
+    // // pool.query(queryText, [bookId])
+    // // TODO - REPLACE BELOW WITH YOUR CODE
+  
+  })});
 
 
 
