@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Task List</title>
     <script src="vendors/jquery-3.3.1.min.js" charset="utf-8"></script>
     <script src="scripts/client.js" charset="utf-8"></script>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <h1>helllo!</h1>
+    <h1>Task List!</h1>
     <div>
         <form>
             <table>
@@ -26,7 +26,8 @@
                         <td><input type="date" id="dueDate" placeholder="TODAY"></td>
                         <td><input type="text" id="category" placeholder="Category" ></td>
                         <td> <input type="text" id="notes" placeholder="Notes" ></td>
-                        <td> <input type="text" id="progress" ></td>
+                        <td> <input type="text" id="progress" value="false">
+                            <select id="progress2"><option>not started</option></select></td>
                         <td> <button id="submit">Submit</button><button id="clear">Clear</button></td>
 
                      </tr>
@@ -36,7 +37,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>Task</th><th>Due Date</th><th>Category</th><th>Notes</th><th>Status</th><th>Edit</th>
+                    <th>Task</th><th>Due Date</th><th>Category</th><th>Notes</th><th>Progress</th><th>Edit</th>
                 </tr>
             </thead>
             <tbody id="taskDisplay"></tbody>

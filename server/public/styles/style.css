@@ -102,3 +102,17 @@ td{
     color: green; /* White text */
 
   }
+
+  input#progress{
+    font-size: 0;
+    padding: 0px;
+  }
+
+  select#progress2{
+    font-family: Arial;
+    color: black;
+    /* text-decoration-color:green; */
+    border: 6px solid transparent;
+    border-color: transparent transparent transparent;
+}
+
