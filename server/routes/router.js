@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool')
 // DB CONNECTION
+
 //POST
 router.post('/',function(req, res){
     const  taskToAdd  =  req.body; // this is data we are sending
@@ -13,6 +14,7 @@ router.post('/',function(req, res){
         console.log('error in POST', err);       
     });
 });  // END POST ROUTE
+
 //GET
 router.get('/', function (req, res) {
 console.log('In GET route');
@@ -43,21 +45,13 @@ router.delete('/:id', (req, res) => {
 //PUT
 router.put('/progress/:id',  (req, res) => {
     console.log(req.params.id, 'this?',req.body);
-  
-    // let task = req.body.task; // Book with updated content
-    let id = req.params.id; // id of the book to update
+    let id = req.params.id; 
     let queryText = `UPDATE "toDo" SET "progress" = 'Yes' WHERE "id" = $1;`;
-
-    console.log(`Updating book ${id} with `, id);
-    // res.sendStatus(500);
-  
+    console.log(`Updating book ${id} with `, id);  
     pool.query(queryText, [id])
     .then(()=>{
       res.sendStatus(200);
       console.log('error making put requeat',error);
-    // // pool.query(queryText, [bookId])
-    // // TODO - REPLACE BELOW WITH YOUR CODE
-  
   })});
 
 
