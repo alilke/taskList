@@ -71,7 +71,9 @@ function appendTasks(task){
         console.log(task[i]);
         let progress = ``;
         if(task[i].progress === false){
-          progress = `<button data-id="${task[i].id}" class="transferBtn">Mark Complete</button>`
+          progress = `<button data-id="${task[i].id}" class="transferBtn"><i class="fa fa-check-circle"></i></button>`
+        }else  if(task[i].progress === true){
+            progress = `<button data-id="${task[i].id}" class="transferBtn2"><i class="fa fa-check-circle"></i></button>`
         }
         let tableRow = $(`
        <tr>
@@ -91,6 +93,8 @@ function appendTasks(task){
     }
     $(`.deleteThis`).on('click', deleteBtn);
     $(`.transferBtn`).on('click', updateProgress);
+    $(`.transferBtn2`).on('click', updateProgress);
+
 }
 
 function deleteBtn(){

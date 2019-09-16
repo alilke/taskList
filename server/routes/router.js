@@ -18,7 +18,7 @@ router.post('/',function(req, res){
 //GET
 router.get('/', function (req, res) {
 console.log('In GET route');
-const query = 'SELECT * FROM "toDo";';
+const query = 'select * FROM "toDo" ORDER BY "progress";';
 pool.query(query).then((results) => {
     console.log(results); // This is an object
     res.send(results.rows); // result.rows is an Array of tasks
@@ -46,7 +46,7 @@ router.delete('/:id', (req, res) => {
 router.put('/progress/:id',  (req, res) => {
     console.log(req.params.id, 'this?',req.body);
     let id = req.params.id; 
-    let queryText = `UPDATE "toDo" SET "progress" = 'Yes' WHERE "id" = $1;`;
+    let queryText = `UPDATE "toDo" SET "progress"=NOT "progress" WHERE "id" = $1;`;
     console.log(`Updating book ${id} with `, id);  
     pool.query(queryText, [id])
     .then(()=>{
